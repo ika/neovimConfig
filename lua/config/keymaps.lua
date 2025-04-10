@@ -38,13 +38,47 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Focus left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Focus right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Focus lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
+vim.keymap.set("n", "<C-left>", "<C-w><C-h>", { desc = "Focus left window" })
+vim.keymap.set("n", "<C-right>", "<C-w><C-l>", { desc = "Focus right window" })
+vim.keymap.set("n", "<C-down>", "<C-w><C-j>", { desc = "Focus lower window" })
+vim.keymap.set("n", "<C-up>", "<C-w><C-k>", { desc = "Focus upper window" })
 
 -- NOTE: Some terminals have coliding keymaps or are not able to send distinct keycodes
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+vim.keymap.set("n", "<C-S-left>", "<C-w>H", { desc = "Move window to the left" })
+vim.keymap.set("n", "<C-S-right>", "<C-w>L", { desc = "Move window to the right" })
+vim.keymap.set("n", "<C-S-down>", "<C-w>J", { desc = "Move window to the lower" })
+vim.keymap.set("n", "<C-S-up>", "<C-w>K", { desc = "Move window to the upper" })
+
+-- Copilot keymaps
+--
+vim.keymap.set(
+  "n",
+  "<leader>co",
+  ":CopilotChatOpen<CR>",
+  { noremap = true, silent = true },
+  { desc = "Open Copilot Chat" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>cc",
+  ":CopilotChatClose<CR>",
+  { noremap = true, silent = true },
+  { desc = "Close Copilot Chat" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>ct",
+  ":CopilotChatToggle<CR>",
+  { noremap = true, silent = true },
+  { desc = "Toggle Copilot Chat" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>cl",
+  ":CopilotChatLoad<CR>",
+  { noremap = true, silent = true },
+  { desc = "Load Copilot Chat" }
+)
